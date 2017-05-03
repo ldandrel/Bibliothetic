@@ -1,0 +1,78 @@
+{% extends 'layouts/default.twig' %}
+
+{% block content %}
+    <section class="add-book-container">
+        <form class="form add-book" action="" method="post">
+            <span class="form-title">Editer un livre </span>
+            {% if book.available == 0 %}
+            <div>
+                Emprunté jusqu'au {{ date(book.date_return_planned) }} par {% for name in names %}{{ utf8(name.first_name) ~ ' ' ~utf8(name.last_name) }}<input type="hidden" name="user_id" value="{{ name.id }}">
+                {% endfor %}
+            </div>
+                <button type="submit" name="available" class="form-button-available">Rendre disponible</button>
+
+            {% endif %}
+
+            <div class="form-box">
+                <label >Cover</label>
+                <img src="{{ book.cover }}" alt="">
+            </div>
+
+            <div class="form-box-mid one">
+                <label>Titre</label>
+                <input type="text" name="title" value=" {{ book.title }}">
+            </div>
+
+            <div class="form-box-mid two">
+                <label>Auteur</label>
+                <input class="contact-input" name="author" type="text" value=" {{ book.author }}">
+            </div>
+
+            <div class="form-box">
+                <label>Catégorie</label>
+                <select name="category">
+                    {% for category in categories %}
+                        <option value="{{ category.id }}" {% if loop.index == book.category_id %}selected{% endif %}>{{ category.category }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <input type="hidden" name="id" value="{{ book.id }}">
+            <input type="submit" name="edit" value="Modifier">
+            <button type="submit" name="delete" class="delete">Supprimer</button>
+
+        </form>
+
+        <div class="history-list">
+            <h1>Historique d'emprunt</h1><br>
+            <table>
+                <thead>
+                <tr>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Date d'emprunt</th>
+                    <th>Date de retour</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for history in history %}
+                    <tr>
+                        <td>{{ utf8(history.first_name) }}</td>
+                        <td>{{ utf8(history.last_name) }}</td>
+                        <td>{{ history.email }}</td>
+                        <td>{{ date(history.date_borrow) }}</td>
+                        {% if book.date_return == null %}
+                            <td>En cours d'emprunt</td>
+                        {% else %}
+                            <td>{{ date(book.date_return) }}</td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'layouts/default.twig' %}
+
+{% block content %}
+    <!-- $app -->
+    <div class="app">
+
+        {% include 'partials/sidebar.twig' %}
+        <!-- $main content -->
+
+        <section class="content">
+            <div class="grid">
+
+                {% for book in books %}
+                    <div id="{{ book.id }}" class="card">
+                        <div class="card-container">
+                            <div class="card-image">
+                                <div class="card-image-container">
+                                    <img src="{{ book.cover }}" alt="{{ book.title }}">
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-content-title" title="{{ book.title }}">{{ excerpt(book.title)  }}</div>
+                                <div class="card-content-author" title="{{ book.author }}">{{ excerpt(book.author)  }}</div>
+                                <div class="card-content-category">{{ book.category }}</div>
+                                <div class="card-content-button">
+                                    {% if book.available == 1 %}<div class="button available"  onclick="borrow( id = {{ book.id }})">Emprunter</div>
+                                    {% elseif book.available == 0 and user.current_book == book.id %}
+                                        <div class="button return"  onclick="currentBook( id = {{ book.id }})">Rendre</div>
+                                    {% elseif book.available == 0 %}
+                                        <div class="card-content-return">
+                                            <svg class="return-icon" viewBox="0 0 129 129">
+                                                <path d="m12.3,70.2c0,28.8 23.4,52.2 52.2,52.2s52.2-23.4 52.2-52.2c0-14.3-5.8-27.4-15.2-36.8l4.1-4.1 1.9,1.9c0.8,0.8 1.8,1.2 2.9,1.2s2.1-0.4 2.9-1.2c1.6-1.6 1.6-4.2 0-5.8l-9.5-9.5c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l1.9,1.9-4.5,4.5c-7.6-5.6-16.7-9.1-26.7-9.9v-3.5h9.1c2.3,0 4.1-1.8 4.1-4.1s-1.8-4.1-4.1-4.1h-27c-2.3,0-4.1,1.8-4.1,4.1s1.8,4.1 4.1,4.1h9.7v3.5c-27,2.1-48.2,24.6-48.2,52zm52.2-44c24.3-3.55271e-15 44.1,19.8 44.1,44.1 0,24.3-19.8,44.1-44.1,44.1-24.3,0-44.1-19.8-44.1-44.1 0-24.4 19.8-44.1 44.1-44.1z"/>
+                                                <path d="m64.5,73.6h17.5c2.3,0 4.1-1.8 4.1-4.1 0-2.3-1.8-4.1-4.1-4.1h-13.4v-21.1c0-2.3-1.8-4.1-4.1-4.1-2.3,0-4.1,1.8-4.1,4.1v25.3c0,2.2 1.8,4 4.1,4z"/>
+                                            </svg>
+                                            <span>Retour le {{ date(book.date_return_planned) }}</span>
+                                        </div>
+                                        <div style="clear: both;">
+
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="loader">
+                <svg viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                      <path d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
+                          <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.5s" repeatCount="indefinite"/>
+                      </path>
+                    </svg>
+            </div>
+
+
+        </section>
+
+
+    </div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'layouts/default.twig' %}
+
+{% block content %}
+    <div class="history-container">
+        <div class="history-list">
+            <h1>{{ users|length }} utilisateurs</h1><br>
+            <table>
+                <thead>
+                <tr>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Livre en cours</th>
+                </tr>
+                </thead>
+                <tbody>
+                 {% for user in users %}
+                     <tr onclick="document.location = '/admin/utilisateur/{{ user.id }}';">
+                         <td>{{ utf8(user.first_name) }}</td>
+                         <td>{{ utf8(user.last_name) }}</td>
+                         <td>{{ user.email }}</td>
+                         <td>{{ book_title(user.current_book) }}</td>
+                     </tr>
+               {% endfor %}
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

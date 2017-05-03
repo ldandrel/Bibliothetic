@@ -1,0 +1,39 @@
+{% extends 'layouts/default.twig' %}
+
+{% block content %}
+
+    <div class="history-container">
+        <div class="history-list">
+            {% for user in users  %}
+            <h1>{{ utf8(user.first_name) ~' '~ utf8(user.last_name) }}</h1><br>
+            <a href="mailto:{{ user.email }}">{{ user.email }}</a>
+            {% endfor %}
+            <table>
+                <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Auteur</th>
+                    <th>Date d'emprunt</th>
+                    <th>Date de retour</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for book in history %}
+                    <tr onclick="document.location = '/admin/livre/{{ book.id }}';">
+                        <td>{{ book.title }}</td>
+                        <td>{{ book.author }}</td>
+                        <td>{{ date(book.date_borrow) }}</td>
+                        {% if book.date_return == '' %}
+                            <td>En cours d'emprunt</td>
+                        {% else %}
+                            <td>{{ date(book.date_return) }}</td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

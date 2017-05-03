@@ -1,0 +1,20 @@
+{% extends 'layouts/default.twig' %}
+
+{% block content %}
+
+    <section class="contact">
+        <form class="form contact-form" action="/contact" method="POST">
+            <span class="form-title">Une question ? Contactez-nous </span>
+
+            <div class="form-box">
+                <label >Votre message </label>
+                <textarea name="message"></textarea>
+            </div>
+
+
+            <input type="submit" value="Envoyer">
+        </form>
+    </section>
+
+
+{% endblock %}

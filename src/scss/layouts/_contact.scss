@@ -1,0 +1,32 @@
+.contact {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 60px);
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+
+.contact-form {
+    box-shadow: $shadow-1;
+    padding: 50px;
+
+    .scan { padding-bottom:30px;}
+
+    .line {
+        background-color:$green;
+        height: 5px;
+        width: 100%;
+    }
+
+    label {
+        margin-bottom: 10px;
+    }
+
+
+}

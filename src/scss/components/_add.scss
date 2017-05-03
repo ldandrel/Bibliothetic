@@ -1,0 +1,33 @@
+.add-book-container {
+  position: absolute;
+  top: 170px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 90%;
+  margin:auto;
+  height: calc(100% - 60px);
+  align-items: center;
+}
+
+
+
+.add-book {
+  box-shadow: $shadow-1;
+  padding: 50px;
+  width: 50%;
+
+  .scan { padding-bottom:30px;}
+
+  .line {
+    background-color:$green;
+    height: 5px;
+    width: 100%;
+  }
+
+  label {
+    margin-bottom: 10px;
+  }
+
+
+}

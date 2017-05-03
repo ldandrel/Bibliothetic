@@ -1,0 +1,20 @@
+{
+    "name": "Demo - Bibliothétic",
+    "authors": [
+        {
+            "name": "Demo - Bibliothétic",
+            "email": "luc.dandrel@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "App"
+        }
+    },
+    "require": {
+        "twig/twig": "~2.0",
+        "symfony/yaml": "^3.2",
+        "google/apiclient": "^2.0",
+        "phpmailer/phpmailer": "^5.2"
+    }
+}

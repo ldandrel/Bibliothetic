@@ -1,0 +1,54 @@
+environment: 'dev'
+
+dev:
+    name: 'Demo Bibliothétic'
+    description: "Demo de la bibliothétic, la bibliothéque d'HETIC"
+    url: 'http://localhost:8888/'
+    database:
+        username: 'root'
+        password: 'root'
+        name: 'name-database'
+        host: 'localhost'
+        type: 'mysql'
+    debug: true
+    twig:
+        cache: false
+    mail:
+        from: ''
+        host: ''
+        username: ''
+        password: ''
+        port: 587
+    google_client:
+        id: ''
+        secret: ''
+        redirect_uri: 'http://localhost:8888/connexion'
+
+
+
+
+
+prod:
+    name: 'Demo Bibliothétic'
+    description: "Démo de la bibliothétic, la bibliothéque d'HETIC"
+    url: 'https://bibli.lucdandrel.com'
+    database:
+        username: ''
+        password: ''
+        name: ''
+        host: 'localhost'
+        type: 'mysql'
+    debug: false
+    twig:
+        cache: false
+    mail:
+        from: ''
+        host: ''
+        username: ''
+        password: ''
+        port: 587
+    google_client:
+        id: ''
+        secret: ''
+        redirect_uri: 'https://bibli.lucdandrel.com/connexion'
+

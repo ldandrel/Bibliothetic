@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+/*
+ * Colors
+ */
+$black: #333333;
+$green: #00B28B;
+$green-hover: #019172;
+$red: #EF303B;
+$red-hover: #d62a37;
+$white: #fff;
+$light-grey: #F8F8F8;
+$grey:#555555;
+$grey-hover: #8a8a8a;
+
+$orange: #ff8216;
+$orange-hover:#FF720C;
+$has-error:#a94442;
+
+
+/*
+ * Shadows
+ */
+$shadow-1:0 0 30px 0 rgba(0,0,0,0.05);
+
+
+/*
+ * Transitions
+ */
+$ease-1: all 0.15s ease-in-out;
+
+
+/*
+ * Z-index
+ */
+$zindex: 1;
+$zindex-2: 5;
+$zindex-3: 10;
+$zindex-4: 15;
+$zindex-5: 20;
+
+
+/*
+ * Breakpoints
+ */
+$phone: 544px;
+$tablet: 768px;
+$desktop: 992px;
+$wide-desktop: 1200px;

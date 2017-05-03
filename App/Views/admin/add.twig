@@ -1,0 +1,50 @@
+{% extends 'layouts/default.twig' %}
+
+{% block content %}
+    <section class="add-book-container">
+        <form class="form add-book" action="" method="post">
+            <span class="form-title">Ajouter un livre </span>
+
+            <div class="scan">
+                <div class="form-box">
+                    <label>Scanner code-barre</label>
+                    <input type="text" placeholder="ISBN" name="isbn" autofocus>
+                </div>
+
+                <div class="line"></div>
+            </div>
+
+            <div class="form-box-mid one {% if book != '' and book.title == '' %}has-error{% endif %}">
+                <label>Titre</label>
+                <input type="text" name="title" value=" {{ book.title }}">
+            </div>
+
+            <div class="form-box-mid two {% if book != '' and book.author == '' %}has-error{% endif %}">
+                <label>Auteur</label>
+                <input class="contact-input" name="author" type="text" value=" {{ book.author }}">
+            </div>
+
+            <div class="form-box {% if book != '' %}has-error{% endif %}">
+                <label>Catégorie</label>
+                <select name="category">
+                    <option value=""></option>
+                    {% for category in categories %}
+                    <option value="{{ category.id }}">{{ category.category }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-box">
+                <label >Cover</label>
+                {% if book.cover != '' %}
+                <img src="{{ book.cover }}" alt="">
+                <input type="hidden" name="cover" value="{{ book.cover }}">
+                {% else %}
+                <input type="file">
+                {% endif %}
+            </div>
+
+            <input type="submit" value="Ajouter">
+        </form>
+    </section>
+{% endblock %}

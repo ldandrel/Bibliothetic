@@ -1,0 +1,42 @@
+{% extends 'layouts/default.twig' %}
+
+{% block content %}
+    <!-- $app -->
+    <div class="app">
+
+        {% include 'partials/sidebar.twig' %}
+
+        <!-- $main content -->
+
+        <section class="content">
+            <div class="grid">
+
+                {% for book in books %}
+                    <a href="/admin/livre/{{ book.id }}" id="{{ book.id }}" class="card admin-card">
+                        <div class="card-image">
+                            <div class="card-image-container">
+                                <img src="{{ book.cover }}" alt="{{ book.title }}">
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-content-title admin {% if book.available == 0 %}unavailable{% endif %}" title="{{ book.title }}">{{ excerpt(book.title)  }}</div>
+                            <div class="card-content-author" title="{{ book.author }}">{{ book.author|length > 30 ? book.author|slice(0, 30) ~ '...' : book.author  }}</div>
+                            <div class="card-content-category">{{ book.category }}</div>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+            <div class="loader">
+                <svg viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                      <path d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
+                          <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.5s" repeatCount="indefinite"/>
+                      </path>
+                    </svg>
+            </div>
+
+
+        </section>
+
+
+    </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% if type == 'contact' %}
+Bonjour, {{ first_name ~ ' ' ~ last_name }} vient de nous envoyer une question :  <br/><br/>
+
+{{ message }} <br/><br/>
+
+<a href="mailto:{{ email }}">Cliquer ici pour lui répondre {{ email }}</a>
+{% endif %}
+
+
+{% if type == 'render' %}
+Bonjour, {{ first_name ~ ' ' ~ last_name }} vient de rendre un livre :  <br/><br/>
+
+{{ book.title ~ ', ' ~ book.author}}
+{% endif %}

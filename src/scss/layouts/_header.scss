@@ -1,0 +1,271 @@
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0px 40px;
+    background-color: $black;
+    color: $white;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.2);
+    z-index: $zindex-5;
+}
+
+.header-left,
+.header-right {
+    display: flex;
+    flex-direction: row;
+}
+
+.header-right {
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+
+
+/*
+ * $logo
+ */
+.logo {
+    line-height: 60px;
+    margin-right: 50px;
+
+    .logo-icon {
+        height: 30px;
+        fill: $green;
+        transform: translateY(7.5px);
+    }
+
+    .logo-name {
+        font-size: 1.125em;
+        font-weight: bold;
+        margin-left: 15px;
+    }
+}
+
+
+/*
+ * $navigation
+ */
+.navigation {
+    flex-grow: 1;
+}
+
+.links {
+    line-height: 60px;
+    display: inline-block;
+    margin-right: 40px;
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.link {
+    font-size: 16px;
+}
+
+.link.active {
+    color: $green;
+}
+
+.user {
+    text-align:right;
+    margin-right: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .user-name {
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .history{
+        color: #95a1ac;
+        font-size: 12px;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        span:last-child{
+            display:none;
+        }
+    }
+}
+/*
+ * $personal
+ */
+.personal {
+    height: 100%;
+    line-height: 60px;
+
+    .book {
+        position: relative;
+        cursor:pointer;
+        margin-right: 20px;
+    }
+
+    .book-icon {
+        height: 18px;
+        fill: $white;
+        transform: translateY(4px);
+        display: inline-block;
+    }
+
+    .book-icon-open {
+        height: 27px;
+        fill: $white;
+        transform: translateY(9px);
+        display: none;
+    }
+
+    .book.active {
+        .book-icon {
+            display: none;
+        }
+
+        .book-icon-open {
+            display: inline-block;
+        }
+
+        &:after {
+            position: absolute;
+            top: 19px;
+            right: -5px;
+            content: " ";
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: $green;
+        }
+    }
+}
+
+.exit-admin-icon {
+    cursor: pointer;
+
+    svg {
+        width: 25px;
+        height: auto;
+        fill: $white;
+        transform: translateY(9px);
+    }
+
+    &:hover svg {
+        fill: $green;
+        transition: all 0.3s ease-in-out;
+    }
+}
+
+.personal {
+    display: flex;
+    align-items: center;
+}
+
+.logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        fill: #fba8a2;
+        width: 14px;
+        height: 14px;
+    }
+
+    span {
+        padding-left: 4px;
+    }
+}
+
+@media screen and (max-width: $desktop) {
+    .header {
+        padding: 0px 30px;
+    }
+
+    .logo {
+        margin-right: 35px;
+
+        .logo-name {
+            margin-left: 8px;
+        }
+    }
+
+    .links {
+        margin-right: 20px;
+    }
+
+}
+
+@media screen and (max-width: $tablet) {
+    .header {
+        padding: 0px 20px;
+    }
+
+    .navigation {
+        display: none;
+    }
+
+    .user .history {
+        span:first-child {
+            display: none;
+        }
+        span:last-child {
+            display:inline-block;
+        }
+    }
+}
+
+@media screen and (max-width: $phone) {
+    .header {
+        padding: 0px 15px;
+    }
+
+    .logo {
+        margin-right: 15px;
+    }
+
+    .logo-icon {
+        display: none;
+    }
+
+    .user .history {
+        span:first-child {
+            display:none;
+        }
+
+        span:last-child {
+            display:none;
+        }
+    }
+
+
+    .logo-name {
+        margin-left: 0px;
+    }
+
+    .logout {
+        span {
+            display: none;
+        }
+    }
+
+    .personal {
+
+        .book-icon-open {
+            transform: translateY(9px);
+        }
+
+        .book.active {
+
+            &:after {
+                top: 20px;
+            }
+        }
+    }
+
+}

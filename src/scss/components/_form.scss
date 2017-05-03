@@ -1,0 +1,179 @@
+/*
+ * $form
+ */
+.form {
+  height: auto;
+  margin: auto;
+  background-color: $white;
+  color: $black;
+}
+
+/*
+ * $title
+ */
+.form-title {
+  display: block;
+  width: 100%;
+  font-size: 1.7em;
+  font-weight:700;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+
+/*
+ * $box
+ */
+.form-box {
+  display: block;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.form-box-mid {
+  display: inline-block;
+  width: 50%;
+  float: left;
+  margin-bottom: 30px;
+}
+
+.form-box-mid.one {
+  padding-right: 15px;
+}
+
+.form-box-mid.two{
+  padding-left: 15px;
+}
+
+
+/*
+ * $label
+ */
+.form label {
+  display: block;
+  font-size: 20px;
+}
+
+
+/*
+ * $input
+ */
+.form input {
+  width: 100%;
+  height: 30px;
+  padding-left: 10px;
+  border: 0.25px solid #BDBDBD;
+  border-radius: 2px;
+}
+
+.form textarea {
+  width: 100%;
+  height: 150px;
+  padding: 15px;
+  border: 0.25px solid #BDBDBD;
+}
+
+.form select {
+  height: 30px;
+  width: 100%;
+}
+
+.form input[type=file] {
+  border:none;
+}
+
+.form img {
+  width: 200px;
+  height: auto;
+}
+
+
+.form input[type=submit] {
+  width: 100%;
+  height: 40px;
+  padding-left: 0px;
+  margin-top: 30px;
+  background-color: $green;
+  font-size: 1.125em;
+  font-weight: bold;
+  color: $white;
+  transition: $ease-1;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $green-hover;
+    transition: $ease-1;
+  }
+
+
+
+}
+
+.delete {
+  width: 100%;
+  height: 40px;
+  padding-left: 0px;
+  margin-top: 30px;
+  background-color:$red;
+  font-size: 1.125em;
+  font-weight: bold;
+  color: $white;
+  transition: $ease-1;
+  cursor: pointer;
+
+
+  &:hover {
+    background-color: $red-hover;
+    transition: $ease-1;
+  }
+}
+
+.form-button-available {
+  width: 40%;
+  height: 40px;
+  padding-left: 0px;
+  margin-top: 30px;
+  background-color:$orange;
+  font-size: 1.125em;
+  font-weight: bold;
+  color: $white;
+  transition: $ease-1;
+  cursor: pointer;
+
+
+  &:hover {
+    background-color: $orange-hover;
+    transition: $ease-1;
+  }
+}
+/*
+ * $focus
+ */
+.form input:focus,
+.form textarea:focus {
+  border-color: $green;
+  transition: $ease-1;
+}
+
+
+/*
+ * $error
+ */
+.has-error {
+  color: $has-error;
+
+  input {
+    border-color: $has-error;
+  }
+
+  input:focus {
+    border-color: inherit;
+  }
+
+  select {
+    border-color: $has-error;
+  }
+
+
+}
+

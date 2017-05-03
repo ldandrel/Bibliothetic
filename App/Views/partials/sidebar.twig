@@ -1,0 +1,22 @@
+<!-- $sidebar -->
+<aside class="sidebar">
+    <div class="sidebar-content">
+        <div class="search">
+            <span class="sidebar-titles">Rechercher</span>
+            <input type="text" class="search-input" placeholder="Rechercher par titre ou auteur" name="search">
+            <input type="checkbox" class="availablility-checkbox" value="availablility" id="availability">
+            <label class="availability-text" for="availability"> N'afficher que les livres disponibles</label>
+        </div>
+        <div class="categories">
+            <span class="sidebar-titles">Catégories</span>
+            <ul class="filters">
+                {% for category in categories %}
+                <li class="filter">
+                    <input type="checkbox" value="{{ category.id }}" id="{{ category.id }}" checked>
+                    <label for="{{ category.id }}">{{ category.category }}</label>
+                </li>
+               {% endfor %}
+            </ul>
+        </div>
+    </div>
+</aside>

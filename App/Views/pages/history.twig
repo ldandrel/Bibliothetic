@@ -1,0 +1,37 @@
+{% extends 'layouts/default.twig' %}
+
+{% block content %}
+    <div class="history-container">
+        <div class="history-list">
+            <h1>Mon historique</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Titre</th>
+                        <th>Auteur</th>
+                        <th>Catégorie</th>
+                        <th>Date de retour</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for book in history %}
+                    {% if book.date_return == '' %}
+                        <tr onclick="currentBook(id={{ book.id }})" >
+                    {% else %}
+                        <tr onclick="borrow(id={{ book.id }})" >
+                    {% endif %}
+                        <td>{{ book.title }}</td>
+                        <td>{{ book.author }}</td>
+                        <td>{{ book.category }}</td>
+                        {% if book.date_return == '' %}
+                        <td>En cours d'emprunt</td>
+                        {% else %}
+                        <td>{{ date(book.date_return) }}</td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

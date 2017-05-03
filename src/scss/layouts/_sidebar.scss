@@ -1,0 +1,109 @@
+.sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    bottom: 0;
+    width: 330px;
+    padding: 25px 40px 40px 40px;
+    user-select:none;
+}
+
+.sidebar-content {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    background-color: $white;
+    color: $black;
+    box-shadow: $shadow-1;
+}
+
+.sidebar-titles {
+    display: inline-block;
+    font-size: 1.5em;
+    font-weight:700;
+    margin-bottom: 15px;
+}
+
+
+/*
+ * $search
+ */
+ .search {
+     margin-bottom: 40px;
+ }
+.search-input {
+    width: 100%;
+    height: 30px !important;
+    font-size: 14px;
+    line-height: 25px;
+    padding-left: 15px;
+    border: 0.25px solid #BDBDBD;
+    border-radius: 5px;
+    margin-bottom: 12px;
+    transition: $ease-1;
+
+    &:focus {
+        border-color: $green;
+    }
+}
+
+.availablility-checkbox {
+    vertical-align: top;
+
+    &:checked + label {
+        color: $green;
+        transition: $ease-1;
+    }
+}
+
+.availability-text {
+    display: inline-block;
+    max-width: 140px;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+
+/*
+ * $categories
+ */
+.filter {
+    font-size: 1.125em;
+    margin-bottom: 20px;
+
+    input {
+        vertical-align: top;
+    }
+
+    input:checked + label {
+        color: $green;
+        transition: $ease-1;
+    }
+
+    label {
+        margin-left: 8px;
+        transition: $ease-1;
+    }
+}
+
+@media screen and (max-width: $desktop) {
+    .sidebar {
+        position: static;
+        top: inherit;
+        right: inherit;
+        bottom: inherit;
+        left: inherit;
+        width: 100%;
+        padding: 20px;
+        margin-top: 30px;
+    }
+
+    .sidebar-content {
+        height: inherit;
+    }
+
+    .filter {
+        display: inline-block;
+        margin-right: 30px;
+    }
+}
