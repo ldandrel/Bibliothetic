@@ -1,8 +1,12 @@
 # Bibliothétic
 
-A web application to manage school library
+A web application to manage school library. 
 
-![Bibliothétic](https://bibli.lucdandrel.com/assets/img/screen.png)
+![preview](https://bibli.lucdandrel.com/assets/img/screen.png)
+
+---
+- [Live demo](https://bibli.lucdandrel.com)
+---
 
 ### Usage
 
